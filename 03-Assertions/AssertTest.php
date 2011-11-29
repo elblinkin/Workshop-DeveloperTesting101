@@ -45,4 +45,16 @@ class AssertTest extends PHPUnit_Framework_TestCase {
         $actual = 2;
         $this->assertEquals($expected, $actual, "We are making this fail by asserting that 2 is 1");
     }
+    
+    public function testMultipleAsserts() {
+        $this->assertFalse(true);
+        $this->assertTrue(false);
+    }
+    
+    public function testForLoopAssert() {
+        $values = array(1, 2, 4, 4);
+        foreach ($values as $key => $value) {
+            $this->assertEquals($key + 1, $value);
+        }
+    }
 }
